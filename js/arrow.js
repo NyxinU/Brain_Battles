@@ -48,7 +48,6 @@ document.addEventListener("keydown", afterUserInput);
 function afterUserInput(e) {
   handleKeyDown(e);
   if (userInput) {
-    console.log(streakCount);
     if (checkCorrectAnswer()) {
       handleCorrectAnswer();
       renderArrow();
