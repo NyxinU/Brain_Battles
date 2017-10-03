@@ -18,3 +18,7 @@
 .visible {
   visibility: visible;
 }
+
+.arrow-div {
+  display: flex;
+}
