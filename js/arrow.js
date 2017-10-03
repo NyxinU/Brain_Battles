@@ -20,38 +20,70 @@ const allArrowsArr = [
   'blueRightArrow',
 ];
 
+const correctAnswers = {
+  redUpArrow: 'down',
+  redDownArrow: 'up',
+  redLeftArrow: 'right',
+  redRightArrow: 'left',
+  blueUpArrow: 'up',
+  blueDownArrow: 'down',
+  blueLeftArrow: 'left',
+  blueRightArrow: 'right',
+};
+
+const score = document.querySelector(".score");
+let scoreCount = 0;
+score.innerHTML = scoreCount;
+
 const arrow = document.querySelector(".arrow");
+let userInput;
+let currentArrow;
 
-window.onclick = setArrow;
-window.addEventListener("keydown", keydown);
+document.onclick=setArrow;
+document.addEventListener("keydown", afterUserInput);
 
-function keydown(e) {
-  let input = undefined;
-  const keyCode = e.keyCode;
-  switch (keyCode) {
-    case 37:
-      input = "left";
-      console.log(input);
-        break;
-    case 38:
-      input = "up";
-      console.log(input);
-        break;
-    case 39:
-      input = "right";
-      console.log(input);
-        break;
-    case 40:
-      input = "down";
-      console.log(input);
-        break;
-    default:
+function afterUserInput(e) {
+  handleKeyDown(e);
+  if (checkCorrectAnswer()) {
+    setArrow();
+    scoreCount += 1;
+    score.innerHTML = scoreCount;
+  }else {
+    scoreCount -= 1;
+    score.innerHTML = scoreCount;
   }
 }
 
 function setArrow() {
-  let currentArrow = allArrowsArr[getRandomInt(0,8)];
+  currentArrow = allArrowsArr[getRandomInt(0,8)];
   arrow.innerHTML = allArrows[currentArrow];
+  console.log(currentArrow);
+}
+
+function handleKeyDown(e) {
+  const keyCode = e.keyCode;
+  switch (keyCode) {
+    case 37:
+    case 65:
+      userInput = "left";
+      break;
+    case 38:
+    case 87:
+      userInput = "up";
+      break;
+    case 39:
+    case 68:
+      userInput = "right";
+      break;
+    case 40:
+    case 83:
+      userInput = "down";
+      break;
+  }
+}
+
+function checkCorrectAnswer() {
+  return correctAnswers[currentArrow] === userInput;
 }
 
 function getRandomInt(min, max) {
