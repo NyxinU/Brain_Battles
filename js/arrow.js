@@ -33,34 +33,54 @@ const correctAnswers = {
 
 const score = document.querySelector(".score");
 let scoreCount = 0;
+let streakCount = 0;
 score.innerHTML = scoreCount;
 
 const arrow = document.querySelector(".arrow");
 let userInput;
 let currentArrow;
 
-document.onclick=setArrow;
+const start = document.querySelector(".start-button");
+
+start.onclick=renderArrow;
 document.addEventListener("keydown", afterUserInput);
 
 function afterUserInput(e) {
   handleKeyDown(e);
-  if (checkCorrectAnswer()) {
-    setArrow();
-    scoreCount += 1;
+  if (userInput) {
+    console.log(streakCount);
+    if (checkCorrectAnswer()) {
+      handleCorrectAnswer();
+      renderArrow();
+    }else {
+      handleWrongAnswer();
+    }
     score.innerHTML = scoreCount;
-  }else {
-    scoreCount -= 1;
-    score.innerHTML = scoreCount;
+    userInput = undefined;
   }
 }
 
-function setArrow() {
+function handleCorrectAnswer() {
+  if (streakCount <= 20) {
+    streakCount += 10;
+  }
+  scoreCount += streakCount;
+}
+
+function handleWrongAnswer() {
+  streakCount = 0;
+  if (scoreCount > 0) {
+    scoreCount -= 10;
+  }
+}
+
+function renderArrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
   arrow.innerHTML = allArrows[currentArrow];
-  console.log(currentArrow);
 }
 
 function handleKeyDown(e) {
+  e.preventDefault();
   const keyCode = e.keyCode;
   switch (keyCode) {
     case 37:
