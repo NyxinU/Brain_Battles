@@ -31,19 +31,38 @@ const correctAnswers = {
   blueRightArrow: 'right',
 };
 
+const countdownTimer = document.querySelector(".countdown-timer");
 const score = document.querySelector(".score");
+const arrow = document.querySelector(".arrow");
+const start = document.querySelector(".start-button");
+
+let timeLeft = 30;
+countdownTimer.innerHTML = timeLeft;
+
 let scoreCount = 0;
 let streakCount = 0;
 score.innerHTML = scoreCount;
 
-const arrow = document.querySelector(".arrow");
 let userInput;
 let currentArrow;
 
-const start = document.querySelector(".start-button");
-
-start.onclick=renderArrow;
+start.onclick=startGame;
 document.addEventListener("keydown", afterUserInput);
+
+function startGame() {
+  start.className = "hidden";
+  renderArrow();
+  timer();
+}
+
+let timer = setInterval(function() {
+  --timeLeft;
+  countdownTimer.innerHTML = timeLeft;
+  if (timeLeft <= 0 ) {
+    clearInterval(timer);
+    window.alert (`Time is up, your score was ${scoreCount}`);
+  }
+},1000);
 
 function afterUserInput(e) {
   handleKeyDown(e);
