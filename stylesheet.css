@@ -1,3 +1,12 @@
-.arrow {
-  font-size: 400px
+/* arrows */
+.red-arrow, .blue-arrow {
+  font-size: 400px;
+}
+
+.red-arrow {
+  color: #fe7777;
+}
+
+.blue-arrow {
+  color: #89caf9;
 }
