@@ -77,6 +77,7 @@ function afterUserInput(e) {
       correctAnswerTransition();
       handleCorrectAnswer();
     }else {
+      incorrectAnswerAnimation();
       handleWrongAnswer();
     }
     p1Score.innerHTML = scoreCount;
@@ -130,6 +131,13 @@ function correctAnswerTransition() {
   arrows[0].classList.add("correct-answer");
   setTimeout(function(){
     arrows[0].classList.remove("correct-answer");
+  },150);
+}
+
+function incorrectAnswerAnimation() {
+  arrows[0].classList.add("incorrect-answer");
+  setTimeout(function(){
+    arrows[0].classList.remove("incorrect-answer");
   },150);
 }
 

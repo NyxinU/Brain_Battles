@@ -81,27 +81,30 @@ const start = document.querySelector(".start-button");
 start.addEventListener("click",() =>{
   start.className = "hidden";
 
-
-
-  timer(4);
-  setTimeout(function() {
+  timer(3, function() {
     startGamePlayer1();
     startGamePlayer2();
-    timer(11);
-  },5000);
+    timer(3, function () {
+      countdownTimer.innerHTML = 0;
+      setTimeout(function() {
+        console.log("game over");
+      },1000);
+    });
+  });
 });
-
-
 
 const countdownTimer = document.querySelector(".countdown-timer");
 let timeLeft = null;
-// countdownTimer.innerHTML = timeLeft;
 
-let timer = (duration) => {
+let timer = (duration, callback) => {
   timeLeft = duration;
+  countdownTimer.innerHTML = timeLeft;
   const interval = setInterval(function() {
-    if (timeLeft <= 0 ) {
+    if (callback ? timeLeft <= 1 : timeLeft <= 0 ) {
       clearInterval(interval);
+      if (typeof callback === "function") {
+        callback();
+      }
       return interval;
     }
     timeLeft--;
@@ -204,6 +207,7 @@ function afterUserInput(e) {
       correctAnswerTransition();
       handleCorrectAnswer();
     }else {
+      incorrectAnswerAnimation();
       handleWrongAnswer();
     }
     p1Score.innerHTML = scoreCount;
@@ -257,6 +261,13 @@ function correctAnswerTransition() {
   arrows[0].classList.add("correct-answer");
   setTimeout(function(){
     arrows[0].classList.remove("correct-answer");
+  },150);
+}
+
+function incorrectAnswerAnimation() {
+  arrows[0].classList.add("incorrect-answer");
+  setTimeout(function(){
+    arrows[0].classList.remove("incorrect-answer");
   },150);
 }
 
