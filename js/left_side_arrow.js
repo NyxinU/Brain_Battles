@@ -31,16 +31,16 @@ const correctAnswers = {
   blueRightArrow: 'right',
 };
 
-const countdownTimer = document.querySelector(".countdown-timer");
+// const countdownTimer = document.querySelector(".countdown-timer");
 const score = document.querySelector(".p1-score");
 const arrows = Array.from(document.querySelectorAll(".arrow"));
-const start = document.querySelector(".start-button");
-start.addEventListener("click",() =>{
-  startGamePlayer1();
-});
+// const start = document.querySelector(".start-button");
+// start.addEventListener("click",() =>{
+//   startGamePlayer1();
+// });
 
-let timeLeft = 30;
-countdownTimer.innerHTML = timeLeft;
+// let timeLeft = 30;
+// countdownTimer.innerHTML = timeLeft;
 
 let scoreCount = 0;
 let streakCount = 0;
@@ -51,30 +51,30 @@ let currentArrow;
 
 document.addEventListener("keydown", afterUserInput);
 
-function startGamePlayer1() {
-  start.className = "hidden";
-  renderArrow();
-  timer();
-}
+// function startGamePlayer1() {
+//   start.className = "hidden";
+//   renderArrow();
+//   timer();
+// }
 
-let timer = () => {
-  const interval = setInterval(function() {
-    if (timeLeft <= 0 ) {
-      clearInterval(interval);
-      window.alert (`Time is up, your score was ${scoreCount}`);
-      return interval;
-    }
-    --timeLeft;
-    countdownTimer.innerHTML = timeLeft;
-    }, 1000);
-};
+// let timer = () => {
+//   const interval = setInterval(function() {
+//     if (timeLeft <= 0 ) {
+//       clearInterval(interval);
+//       window.alert (`Time is up, your score was ${scoreCount}`);
+//       return interval;
+//     }
+//     --timeLeft;
+//     countdownTimer.innerHTML = timeLeft;
+//     }, 1000);
+// };
 
 function afterUserInput(e) {
   handleKeyDown(e);
   if (userInput) {
     if (checkCorrectAnswer()) {
       handleCorrectAnswer();
-      renderArrow();
+      renderPlayer1Arrow();
     }else {
       handleWrongAnswer();
     }
@@ -97,7 +97,7 @@ function handleWrongAnswer() {
   }
 }
 
-function renderArrow() {
+export function renderPlayer1Arrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
   console.log(arrows);
     arrows[0].innerHTML = allArrows[currentArrow];
