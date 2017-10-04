@@ -92,8 +92,8 @@ let timeLeft = null;
 
 start.addEventListener("click",() =>{
   start.className = "hidden";
+  resetScore();
   scoreDiv.classList.remove("hidden");
-  clearArrows();
   timer(3, function() {
     unhideArrows();
     startGamePlayer1();
@@ -146,6 +146,11 @@ function clearArrows() {
 function unhideArrows() {
   document.addEventListener("keydown", __WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["a" /* afterP1Input */]);
   document.addEventListener("keydown", __WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["a" /* afterP2Input */]);
+}
+
+function resetScore() {
+  p1Score.innerHTML = 0;
+  p2Score.innerHTML = 0;
 }
 
 

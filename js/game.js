@@ -19,8 +19,8 @@ let timeLeft = null;
 
 start.addEventListener("click",() =>{
   start.className = "hidden";
+  resetScore();
   scoreDiv.classList.remove("hidden");
-  clearArrows();
   timer(3, function() {
     unhideArrows();
     startGamePlayer1();
@@ -73,4 +73,9 @@ function clearArrows() {
 function unhideArrows() {
   document.addEventListener("keydown", afterP1Input);
   document.addEventListener("keydown", afterP2Input);
+}
+
+function resetScore() {
+  p1Score.innerHTML = 0;
+  p2Score.innerHTML = 0;
 }
