@@ -71,24 +71,29 @@
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__left_side_arrow__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__right_side_arrow__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__right_side_arrow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__);
 
 
+
+const p1Score = document.querySelector(".p1-score");
+const p2Score = document.querySelector(".p2-score");
 
 const start = document.querySelector(".start-button");
 start.addEventListener("click",() =>{
+  start.className = "hidden";
   startGamePlayer1();
+  startGamePlayer2();
+  timer();
 });
 
 const countdownTimer = document.querySelector(".countdown-timer");
-let timeLeft = 30;
+let timeLeft = 5;
 countdownTimer.innerHTML = timeLeft;
 
 let timer = () => {
   const interval = setInterval(function() {
     if (timeLeft <= 0 ) {
       clearInterval(interval);
-      window.alert (`Time is up, your score was ${scoreCount}`);
+      window.alert (`Time is up p1 score is ${p1Score.innerHTML}, p2 score is ${p2Score.innerHTML}`);
       return interval;
     }
     --timeLeft;
@@ -97,9 +102,11 @@ let timer = () => {
 };
 
 function startGamePlayer1() {
-  start.className = "hidden";
   Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["a" /* renderPlayer1Arrow */])();
-  timer();
+}
+
+function startGamePlayer2() {
+  Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["a" /* renderPlayer2Arrow */])();
 }
 
 
@@ -144,7 +151,7 @@ const correctAnswers = {
 };
 
 // const countdownTimer = document.querySelector(".countdown-timer");
-const score = document.querySelector(".p1-score");
+const p1Score = document.querySelector(".p1-score");
 const arrows = Array.from(document.querySelectorAll(".arrow"));
 // const start = document.querySelector(".start-button");
 // start.addEventListener("click",() =>{
@@ -156,7 +163,7 @@ const arrows = Array.from(document.querySelectorAll(".arrow"));
 
 let scoreCount = 0;
 let streakCount = 0;
-score.innerHTML = scoreCount;
+p1Score.innerHTML = scoreCount;
 
 let userInput;
 let currentArrow;
@@ -190,7 +197,7 @@ function afterUserInput(e) {
     }else {
       handleWrongAnswer();
     }
-    score.innerHTML = scoreCount;
+    p1Score.innerHTML = scoreCount;
     userInput = undefined;
   }
 }
@@ -211,7 +218,7 @@ function handleWrongAnswer() {
 
 function renderPlayer1Arrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
-  console.log(arrows);
+  // console.log(arrows);
     arrows[0].innerHTML = allArrows[currentArrow];
 }
 
@@ -247,8 +254,10 @@ function getRandomInt(min, max) {
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = renderPlayer2Arrow;
 const allArrows = {
   redUpArrow: '<i class="fa fa-arrow-circle-up red-arrow" aria-hidden="true"></i>',
   redDownArrow: '<i class="fa fa-arrow-circle-down red-arrow" aria-hidden="true"></i>',
@@ -282,54 +291,54 @@ const correctAnswers = {
   blueRightArrow: 'right',
 };
 
-const countdownTimer = document.querySelector(".countdown-timer");
-const score = document.querySelector(".p2-score");
+// const countdownTimer = document.querySelector(".countdown-timer");
+const p2Score = document.querySelector(".p2-score");
 const arrows = Array.from(document.querySelectorAll(".arrow"));
 const start = document.querySelector(".start-button");
-start.addEventListener("click",() =>{
-  startGamePlayer2();
-});
+// start.addEventListener("click",() =>{
+//   startGamePlayer2();
+// });
 
-let timeLeft = 30;
-countdownTimer.innerHTML = timeLeft;
+// let timeLeft = 30;
+// countdownTimer.innerHTML = timeLeft;
 
 let scoreCount = 0;
 let streakCount = 0;
-score.innerHTML = scoreCount;
+p2Score.innerHTML = scoreCount;
 
 let userInput;
 let currentArrow;
 
 document.addEventListener("keydown", afterUserInput);
 
-function startGamePlayer2() {
-  start.className = "hidden";
-  renderArrow();
-  timer();
-}
+// function startGamePlayer2() {
+//   start.className = "hidden";
+//   renderArrow();
+//   timer();
+// }
 
-let timer = () => {
-  const interval = setInterval(function() {
-    if (timeLeft <= 0 ) {
-      clearInterval(interval);
-      window.alert (`Time is up, your score was ${scoreCount}`);
-      return interval;
-    }
-    --timeLeft;
-    countdownTimer.innerHTML = timeLeft;
-    }, 1000);
-};
+// let timer = () => {
+//   const interval = setInterval(function() {
+//     if (timeLeft <= 0 ) {
+//       clearInterval(interval);
+//       window.alert (`Time is up, your score was ${scoreCount}`);
+//       return interval;
+//     }
+//     --timeLeft;
+//     countdownTimer.innerHTML = timeLeft;
+//     }, 1000);
+// };
 
 function afterUserInput(e) {
   handleKeyDown(e);
   if (userInput) {
     if (checkCorrectAnswer()) {
       handleCorrectAnswer();
-      renderArrow();
+      renderPlayer2Arrow();
     }else {
       handleWrongAnswer();
     }
-    score.innerHTML = scoreCount;
+    p2Score.innerHTML = scoreCount;
     userInput = undefined;
   }
 }
@@ -348,7 +357,7 @@ function handleWrongAnswer() {
   }
 }
 
-function renderArrow() {
+function renderPlayer2Arrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
   console.log(arrows);
     arrows[1].innerHTML = allArrows[currentArrow];

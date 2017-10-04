@@ -32,7 +32,7 @@ const correctAnswers = {
 };
 
 // const countdownTimer = document.querySelector(".countdown-timer");
-const score = document.querySelector(".p1-score");
+const p1Score = document.querySelector(".p1-score");
 const arrows = Array.from(document.querySelectorAll(".arrow"));
 // const start = document.querySelector(".start-button");
 // start.addEventListener("click",() =>{
@@ -44,7 +44,7 @@ const arrows = Array.from(document.querySelectorAll(".arrow"));
 
 let scoreCount = 0;
 let streakCount = 0;
-score.innerHTML = scoreCount;
+p1Score.innerHTML = scoreCount;
 
 let userInput;
 let currentArrow;
@@ -78,7 +78,7 @@ function afterUserInput(e) {
     }else {
       handleWrongAnswer();
     }
-    score.innerHTML = scoreCount;
+    p1Score.innerHTML = scoreCount;
     userInput = undefined;
   }
 }
@@ -99,7 +99,7 @@ function handleWrongAnswer() {
 
 export function renderPlayer1Arrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
-  console.log(arrows);
+  // console.log(arrows);
     arrows[0].innerHTML = allArrows[currentArrow];
 }
 
