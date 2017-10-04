@@ -32,9 +32,12 @@ const correctAnswers = {
 };
 
 const countdownTimer = document.querySelector(".countdown-timer");
-const score = document.querySelector(".score");
-const arrows = document.querySelectorAll(".arrow");
+const score = document.querySelector(".p1-score");
+const arrows = Array.from(document.querySelectorAll(".arrow"));
 const start = document.querySelector(".start-button");
+start.addEventListener("click",() =>{
+  startGamePlayer1();
+});
 
 let timeLeft = 30;
 countdownTimer.innerHTML = timeLeft;
@@ -46,10 +49,9 @@ score.innerHTML = scoreCount;
 let userInput;
 let currentArrow;
 
-start.onclick = startGame;
 document.addEventListener("keydown", afterUserInput);
 
-function startGame() {
+function startGamePlayer1() {
   start.className = "hidden";
   renderArrow();
   timer();
@@ -97,32 +99,23 @@ function handleWrongAnswer() {
 
 function renderArrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
-  arrows.forEach(arrow => {
-    arrow.innerHTML = allArrows[currentArrow];
-});}
-function renderArrow() {
-  currentArrow = allArrowsArr[getRandomInt(0,8)];
-  arrows.forEach(arrow => {
-    arrow.innerHTML = allArrows[currentArrow];
-});}
+  console.log(arrows);
+    arrows[0].innerHTML = allArrows[currentArrow];
+}
 
 function handleKeyDown(e) {
   e.preventDefault();
   const keyCode = e.keyCode;
   switch (keyCode) {
-    case 37:
     case 65:
       userInput = "left";
       break;
-    case 38:
     case 87:
       userInput = "up";
       break;
-    case 39:
     case 68:
       userInput = "right";
       break;
-    case 40:
     case 83:
       userInput = "down";
       break;

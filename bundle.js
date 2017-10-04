@@ -69,13 +69,17 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__arrow__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__arrow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__arrow__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__left_side_arrow__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__left_side_arrow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__right_side_arrow__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__right_side_arrow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__);
+
 
 
 
 /***/ }),
-/* 1 */
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports) {
 
 const allArrows = {
@@ -112,9 +116,12 @@ const correctAnswers = {
 };
 
 const countdownTimer = document.querySelector(".countdown-timer");
-const score = document.querySelector(".score");
-const arrows = document.querySelectorAll(".arrow");
+const score = document.querySelector(".p1-score");
+const arrows = Array.from(document.querySelectorAll(".arrow"));
 const start = document.querySelector(".start-button");
+start.addEventListener("click",() =>{
+  startGamePlayer1();
+});
 
 let timeLeft = 30;
 countdownTimer.innerHTML = timeLeft;
@@ -126,10 +133,9 @@ score.innerHTML = scoreCount;
 let userInput;
 let currentArrow;
 
-start.onclick = startGame;
 document.addEventListener("keydown", afterUserInput);
 
-function startGame() {
+function startGamePlayer1() {
   start.className = "hidden";
   renderArrow();
   timer();
@@ -177,33 +183,163 @@ function handleWrongAnswer() {
 
 function renderArrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
-  arrows.forEach(arrow => {
-    arrow.innerHTML = allArrows[currentArrow];
-});}
+  console.log(arrows);
+    arrows[0].innerHTML = allArrows[currentArrow];
+}
+
+function handleKeyDown(e) {
+  e.preventDefault();
+  const keyCode = e.keyCode;
+  switch (keyCode) {
+    case 65:
+      userInput = "left";
+      break;
+    case 87:
+      userInput = "up";
+      break;
+    case 68:
+      userInput = "right";
+      break;
+    case 83:
+      userInput = "down";
+      break;
+  }
+}
+
+function checkCorrectAnswer() {
+  return correctAnswers[currentArrow] === userInput;
+}
+
+function getRandomInt(min, max) {
+  min = min;
+  max = max ;
+  return Math.floor(Math.random() * (max-min)) + min;
+}
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+const allArrows = {
+  redUpArrow: '<i class="fa fa-arrow-circle-up red-arrow" aria-hidden="true"></i>',
+  redDownArrow: '<i class="fa fa-arrow-circle-down red-arrow" aria-hidden="true"></i>',
+  redLeftArrow: '<i class="fa fa-arrow-circle-left red-arrow" aria-hidden="true"></i>',
+  redRightArrow: '<i class="fa fa-arrow-circle-right red-arrow" aria-hidden="true"></i>',
+  blueUpArrow: '<i class="fa fa-arrow-circle-up blue-arrow" aria-hidden="true"></i>',
+  blueDownArrow: '<i class="fa fa-arrow-circle-down blue-arrow" aria-hidden="true"></i>',
+  blueLeftArrow: '<i class="fa fa-arrow-circle-left blue-arrow" aria-hidden="true"></i>',
+  blueRightArrow: '<i class="fa fa-arrow-circle-right blue-arrow" aria-hidden="true"></i>',
+};
+
+const allArrowsArr = [
+  'redUpArrow',
+  'redDownArrow',
+  'redLeftArrow',
+  'redRightArrow',
+  'blueUpArrow',
+  'blueDownArrow',
+  'blueLeftArrow',
+  'blueRightArrow',
+];
+
+const correctAnswers = {
+  redUpArrow: 'down',
+  redDownArrow: 'up',
+  redLeftArrow: 'right',
+  redRightArrow: 'left',
+  blueUpArrow: 'up',
+  blueDownArrow: 'down',
+  blueLeftArrow: 'left',
+  blueRightArrow: 'right',
+};
+
+const countdownTimer = document.querySelector(".countdown-timer");
+const score = document.querySelector(".p2-score");
+const arrows = Array.from(document.querySelectorAll(".arrow"));
+const start = document.querySelector(".start-button");
+start.addEventListener("click",() =>{
+  startGamePlayer2();
+});
+
+let timeLeft = 30;
+countdownTimer.innerHTML = timeLeft;
+
+let scoreCount = 0;
+let streakCount = 0;
+score.innerHTML = scoreCount;
+
+let userInput;
+let currentArrow;
+
+document.addEventListener("keydown", afterUserInput);
+
+function startGamePlayer2() {
+  start.className = "hidden";
+  renderArrow();
+  timer();
+}
+
+let timer = () => {
+  const interval = setInterval(function() {
+    if (timeLeft <= 0 ) {
+      clearInterval(interval);
+      window.alert (`Time is up, your score was ${scoreCount}`);
+      return interval;
+    }
+    --timeLeft;
+    countdownTimer.innerHTML = timeLeft;
+    }, 1000);
+};
+
+function afterUserInput(e) {
+  handleKeyDown(e);
+  if (userInput) {
+    if (checkCorrectAnswer()) {
+      handleCorrectAnswer();
+      renderArrow();
+    }else {
+      handleWrongAnswer();
+    }
+    score.innerHTML = scoreCount;
+    userInput = undefined;
+  }
+}
+
+function handleCorrectAnswer() {
+  if (streakCount <= 20) {
+    streakCount += 10;
+  }
+  scoreCount += streakCount;
+}
+
+function handleWrongAnswer() {
+  streakCount = 0;
+  if (scoreCount > 0) {
+    scoreCount -= 10;
+  }
+}
+
 function renderArrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
-  arrows.forEach(arrow => {
-    arrow.innerHTML = allArrows[currentArrow];
-});}
+  console.log(arrows);
+    arrows[1].innerHTML = allArrows[currentArrow];
+}
 
 function handleKeyDown(e) {
   e.preventDefault();
   const keyCode = e.keyCode;
   switch (keyCode) {
     case 37:
-    case 65:
       userInput = "left";
       break;
     case 38:
-    case 87:
       userInput = "up";
       break;
     case 39:
-    case 68:
       userInput = "right";
       break;
     case 40:
-    case 83:
       userInput = "down";
       break;
   }
