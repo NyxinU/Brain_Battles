@@ -80,23 +80,31 @@ const p2Score = document.querySelector(".p2-score");
 const start = document.querySelector(".start-button");
 start.addEventListener("click",() =>{
   start.className = "hidden";
-  startGamePlayer1();
-  startGamePlayer2();
-  timer();
+
+
+
+  timer(4);
+  setTimeout(function() {
+    startGamePlayer1();
+    startGamePlayer2();
+    timer(11);
+  },5000);
 });
 
-const countdownTimer = document.querySelector(".countdown-timer");
-let timeLeft = 5;
-countdownTimer.innerHTML = timeLeft;
 
-let timer = () => {
+
+const countdownTimer = document.querySelector(".countdown-timer");
+let timeLeft = null;
+// countdownTimer.innerHTML = timeLeft;
+
+let timer = (duration) => {
+  timeLeft = duration;
   const interval = setInterval(function() {
     if (timeLeft <= 0 ) {
       clearInterval(interval);
-      window.alert (`Time is up p1 score is ${p1Score.innerHTML}, p2 score is ${p2Score.innerHTML}`);
       return interval;
     }
-    --timeLeft;
+    timeLeft--;
     countdownTimer.innerHTML = timeLeft;
     }, 1000);
 };
@@ -192,8 +200,9 @@ function afterUserInput(e) {
   handleKeyDown(e);
   if (userInput) {
     if (checkCorrectAnswer()) {
-      handleCorrectAnswer();
       renderPlayer1Arrow();
+      correctAnswerTransition();
+      handleCorrectAnswer();
     }else {
       handleWrongAnswer();
     }
@@ -218,7 +227,6 @@ function handleWrongAnswer() {
 
 function renderPlayer1Arrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
-  // console.log(arrows);
     arrows[0].innerHTML = allArrows[currentArrow];
 }
 
@@ -243,6 +251,13 @@ function handleKeyDown(e) {
 
 function checkCorrectAnswer() {
   return correctAnswers[currentArrow] === userInput;
+}
+
+function correctAnswerTransition() {
+  arrows[0].classList.add("correct-answer");
+  setTimeout(function(){
+    arrows[0].classList.remove("correct-answer");
+  },150);
 }
 
 function getRandomInt(min, max) {
@@ -333,9 +348,11 @@ function afterUserInput(e) {
   handleKeyDown(e);
   if (userInput) {
     if (checkCorrectAnswer()) {
-      handleCorrectAnswer();
       renderPlayer2Arrow();
+      correctAnswerTransition();
+      handleCorrectAnswer();
     }else {
+      incorrectAnswerAnimation();
       handleWrongAnswer();
     }
     p2Score.innerHTML = scoreCount;
@@ -359,7 +376,6 @@ function handleWrongAnswer() {
 
 function renderPlayer2Arrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
-  console.log(arrows);
     arrows[1].innerHTML = allArrows[currentArrow];
 }
 
@@ -384,6 +400,20 @@ function handleKeyDown(e) {
 
 function checkCorrectAnswer() {
   return correctAnswers[currentArrow] === userInput;
+}
+
+function correctAnswerTransition() {
+  arrows[1].classList.add("correct-answer");
+  setTimeout(function(){
+    arrows[1].classList.remove("correct-answer");
+  },155);
+}
+
+function incorrectAnswerAnimation() {
+  arrows[1].classList.add("incorrect-answer");
+  setTimeout(function(){
+    arrows[1].classList.remove("incorrect-answer");
+  },150);
 }
 
 function getRandomInt(min, max) {

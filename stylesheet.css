@@ -21,4 +21,21 @@
 
 .arrow-div {
   display: flex;
+  justify-content: space-around;
+}
+
+.correct-answer {
+  transform: scale(1.07, 1.07);
+  transition: transform 140ms ease-out
+}
+
+.incorrect-answer {
+  animation: shake .08s ease 0s infinite;
+}
+
+@keyframes shake {
+  0% {transform: translate(-17px,0px)};
+  33% {transform: translate(17px,0px)};
+  66% {transform: translate(-17px,0px)};
+  100% {transform: translate(17px,0px)};
 }

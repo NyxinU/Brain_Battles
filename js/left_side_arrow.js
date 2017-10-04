@@ -73,8 +73,9 @@ function afterUserInput(e) {
   handleKeyDown(e);
   if (userInput) {
     if (checkCorrectAnswer()) {
-      handleCorrectAnswer();
       renderPlayer1Arrow();
+      correctAnswerTransition();
+      handleCorrectAnswer();
     }else {
       handleWrongAnswer();
     }
@@ -99,7 +100,6 @@ function handleWrongAnswer() {
 
 export function renderPlayer1Arrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
-  // console.log(arrows);
     arrows[0].innerHTML = allArrows[currentArrow];
 }
 
@@ -124,6 +124,13 @@ function handleKeyDown(e) {
 
 function checkCorrectAnswer() {
   return correctAnswers[currentArrow] === userInput;
+}
+
+function correctAnswerTransition() {
+  arrows[0].classList.add("correct-answer");
+  setTimeout(function(){
+    arrows[0].classList.remove("correct-answer");
+  },150);
 }
 
 function getRandomInt(min, max) {

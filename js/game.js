@@ -7,23 +7,31 @@ const p2Score = document.querySelector(".p2-score");
 const start = document.querySelector(".start-button");
 start.addEventListener("click",() =>{
   start.className = "hidden";
-  startGamePlayer1();
-  startGamePlayer2();
-  timer();
+
+
+
+  timer(4);
+  setTimeout(function() {
+    startGamePlayer1();
+    startGamePlayer2();
+    timer(11);
+  },5000);
 });
 
-const countdownTimer = document.querySelector(".countdown-timer");
-let timeLeft = 5;
-countdownTimer.innerHTML = timeLeft;
 
-let timer = () => {
+
+const countdownTimer = document.querySelector(".countdown-timer");
+let timeLeft = null;
+// countdownTimer.innerHTML = timeLeft;
+
+let timer = (duration) => {
+  timeLeft = duration;
   const interval = setInterval(function() {
     if (timeLeft <= 0 ) {
       clearInterval(interval);
-      window.alert (`Time is up p1 score is ${p1Score.innerHTML}, p2 score is ${p2Score.innerHTML}`);
       return interval;
     }
-    --timeLeft;
+    timeLeft--;
     countdownTimer.innerHTML = timeLeft;
     }, 1000);
 };
