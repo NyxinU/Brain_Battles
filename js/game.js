@@ -1,19 +1,31 @@
-import { renderPlayer1Arrow, } from "./left_side_arrow";
-import { renderPlayer2Arrow, } from "./right_side_arrow";
+import { renderPlayer1Arrow, afterP1Input } from "./left_side_arrow";
+import { renderPlayer2Arrow, afterP2Input } from "./right_side_arrow";
 
+const scoreDiv = document.querySelector(".score-div");
 const p1Score = document.querySelector(".p1-score");
 const p2Score = document.querySelector(".p2-score");
 const countdownTimer = document.querySelector(".countdown-timer");
 const arrows = Array.from(document.querySelectorAll(".arrow"));
 const start = document.querySelector(".start-button");
+// document.addEventListener("keydown", afterP1Input);
+// document.addEventListener("keydown", afterP2Input);
+
+// starting state
+scoreDiv.className = "hidden";
+renderPlayer1Arrow();
+renderPlayer2Arrow();
 let timeLeft = null;
+//
 
 start.addEventListener("click",() =>{
   start.className = "hidden";
-  timer(1, function() {
+  scoreDiv.classList.remove("hidden");
+  clearArrows();
+  timer(3, function() {
+    unhideArrows();
     startGamePlayer1();
     startGamePlayer2();
-    timer(1, function () {
+    timer(3, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
         console.log("game over");
@@ -54,4 +66,11 @@ function clearArrows() {
   arrows.forEach(function(arrow) {
     arrow.innerHTML = "";
   });
+  document.removeEventListener("keydown", afterP1Input);
+  document.removeEventListener("keydown", afterP2Input);
+}
+
+function unhideArrows() {
+  document.addEventListener("keydown", afterP1Input);
+  document.addEventListener("keydown", afterP2Input);
 }

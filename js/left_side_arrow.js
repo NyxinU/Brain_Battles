@@ -42,14 +42,14 @@ const arrows = Array.from(document.querySelectorAll(".arrow"));
 // let timeLeft = 30;
 // countdownTimer.innerHTML = timeLeft;
 
-let scoreCount = 0;
+let p1ScoreCount = 0;
 let streakCount = 0;
-p1Score.innerHTML = scoreCount;
+p1Score.innerHTML = p1ScoreCount;
 
 let userInput;
 let currentArrow;
 
-document.addEventListener("keydown", afterUserInput);
+document.addEventListener("keydown", afterP1Input);
 
 // function startGamePlayer1() {
 //   start.className = "hidden";
@@ -61,7 +61,7 @@ document.addEventListener("keydown", afterUserInput);
 //   const interval = setInterval(function() {
 //     if (timeLeft <= 0 ) {
 //       clearInterval(interval);
-//       window.alert (`Time is up, your score was ${scoreCount}`);
+//       window.alert (`Time is up, your score was ${p1ScoreCount}`);
 //       return interval;
 //     }
 //     --timeLeft;
@@ -69,7 +69,7 @@ document.addEventListener("keydown", afterUserInput);
 //     }, 1000);
 // };
 
-function afterUserInput(e) {
+export function afterP1Input(e) {
   handleKeyDown(e);
   if (userInput) {
     if (checkCorrectAnswer()) {
@@ -80,7 +80,7 @@ function afterUserInput(e) {
       incorrectAnswerAnimation();
       handleWrongAnswer();
     }
-    p1Score.innerHTML = scoreCount;
+    p1Score.innerHTML = p1ScoreCount;
     userInput = undefined;
   }
 }
@@ -89,13 +89,13 @@ function handleCorrectAnswer() {
   if (streakCount <= 20) {
     streakCount += 10;
   }
-  scoreCount += streakCount;
+  p1ScoreCount += streakCount;
 }
 
 function handleWrongAnswer() {
   streakCount = 0;
-  if (scoreCount > 0) {
-    scoreCount -= 10;
+  if (p1ScoreCount > 0) {
+    p1ScoreCount -= 10;
   }
 }
 

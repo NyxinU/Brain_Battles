@@ -49,7 +49,7 @@ p2Score.innerHTML = scoreCount;
 let userInput;
 let currentArrow;
 
-document.addEventListener("keydown", afterUserInput);
+document.addEventListener("keydown", afterP2Input);
 
 // function startGamePlayer2() {
 //   start.className = "hidden";
@@ -69,7 +69,7 @@ document.addEventListener("keydown", afterUserInput);
 //     }, 1000);
 // };
 
-function afterUserInput(e) {
+export function afterP2Input(e) {
   handleKeyDown(e);
   if (userInput) {
     if (checkCorrectAnswer()) {

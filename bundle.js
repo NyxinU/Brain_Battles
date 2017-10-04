@@ -74,19 +74,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+const scoreDiv = document.querySelector(".score-div");
 const p1Score = document.querySelector(".p1-score");
 const p2Score = document.querySelector(".p2-score");
 const countdownTimer = document.querySelector(".countdown-timer");
 const arrows = Array.from(document.querySelectorAll(".arrow"));
 const start = document.querySelector(".start-button");
+// document.addEventListener("keydown", afterP1Input);
+// document.addEventListener("keydown", afterP2Input);
+
+// starting state
+scoreDiv.className = "hidden";
+Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["b" /* renderPlayer1Arrow */])();
+Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["b" /* renderPlayer2Arrow */])();
 let timeLeft = null;
+//
 
 start.addEventListener("click",() =>{
   start.className = "hidden";
-  timer(1, function() {
+  scoreDiv.classList.remove("hidden");
+  clearArrows();
+  timer(3, function() {
+    unhideArrows();
     startGamePlayer1();
     startGamePlayer2();
-    timer(1, function () {
+    timer(3, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
         console.log("game over");
@@ -116,17 +128,24 @@ let timer = (duration, callback) => {
 };
 
 function startGamePlayer1() {
-  Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["a" /* renderPlayer1Arrow */])();
+  Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["b" /* renderPlayer1Arrow */])();
 }
 
 function startGamePlayer2() {
-  Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["a" /* renderPlayer2Arrow */])();
+  Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["b" /* renderPlayer2Arrow */])();
 }
 
 function clearArrows() {
   arrows.forEach(function(arrow) {
     arrow.innerHTML = "";
   });
+  document.removeEventListener("keydown", __WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["a" /* afterP1Input */]);
+  document.removeEventListener("keydown", __WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["a" /* afterP2Input */]);
+}
+
+function unhideArrows() {
+  document.addEventListener("keydown", __WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["a" /* afterP1Input */]);
+  document.addEventListener("keydown", __WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["a" /* afterP2Input */]);
 }
 
 
@@ -136,7 +155,8 @@ function clearArrows() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = renderPlayer1Arrow;
+/* harmony export (immutable) */ __webpack_exports__["a"] = afterP1Input;
+/* harmony export (immutable) */ __webpack_exports__["b"] = renderPlayer1Arrow;
 const allArrows = {
   redUpArrow: '<i class="fa fa-arrow-circle-up red-arrow" aria-hidden="true"></i>',
   redDownArrow: '<i class="fa fa-arrow-circle-down red-arrow" aria-hidden="true"></i>',
@@ -181,14 +201,14 @@ const arrows = Array.from(document.querySelectorAll(".arrow"));
 // let timeLeft = 30;
 // countdownTimer.innerHTML = timeLeft;
 
-let scoreCount = 0;
+let p1ScoreCount = 0;
 let streakCount = 0;
-p1Score.innerHTML = scoreCount;
+p1Score.innerHTML = p1ScoreCount;
 
 let userInput;
 let currentArrow;
 
-document.addEventListener("keydown", afterUserInput);
+document.addEventListener("keydown", afterP1Input);
 
 // function startGamePlayer1() {
 //   start.className = "hidden";
@@ -200,7 +220,7 @@ document.addEventListener("keydown", afterUserInput);
 //   const interval = setInterval(function() {
 //     if (timeLeft <= 0 ) {
 //       clearInterval(interval);
-//       window.alert (`Time is up, your score was ${scoreCount}`);
+//       window.alert (`Time is up, your score was ${p1ScoreCount}`);
 //       return interval;
 //     }
 //     --timeLeft;
@@ -208,7 +228,7 @@ document.addEventListener("keydown", afterUserInput);
 //     }, 1000);
 // };
 
-function afterUserInput(e) {
+function afterP1Input(e) {
   handleKeyDown(e);
   if (userInput) {
     if (checkCorrectAnswer()) {
@@ -219,7 +239,7 @@ function afterUserInput(e) {
       incorrectAnswerAnimation();
       handleWrongAnswer();
     }
-    p1Score.innerHTML = scoreCount;
+    p1Score.innerHTML = p1ScoreCount;
     userInput = undefined;
   }
 }
@@ -228,13 +248,13 @@ function handleCorrectAnswer() {
   if (streakCount <= 20) {
     streakCount += 10;
   }
-  scoreCount += streakCount;
+  p1ScoreCount += streakCount;
 }
 
 function handleWrongAnswer() {
   streakCount = 0;
-  if (scoreCount > 0) {
-    scoreCount -= 10;
+  if (p1ScoreCount > 0) {
+    p1ScoreCount -= 10;
   }
 }
 
@@ -292,7 +312,8 @@ function getRandomInt(min, max) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = renderPlayer2Arrow;
+/* harmony export (immutable) */ __webpack_exports__["a"] = afterP2Input;
+/* harmony export (immutable) */ __webpack_exports__["b"] = renderPlayer2Arrow;
 const allArrows = {
   redUpArrow: '<i class="fa fa-arrow-circle-up red-arrow" aria-hidden="true"></i>',
   redDownArrow: '<i class="fa fa-arrow-circle-down red-arrow" aria-hidden="true"></i>',
@@ -344,7 +365,7 @@ p2Score.innerHTML = scoreCount;
 let userInput;
 let currentArrow;
 
-document.addEventListener("keydown", afterUserInput);
+document.addEventListener("keydown", afterP2Input);
 
 // function startGamePlayer2() {
 //   start.className = "hidden";
@@ -364,7 +385,7 @@ document.addEventListener("keydown", afterUserInput);
 //     }, 1000);
 // };
 
-function afterUserInput(e) {
+function afterP2Input(e) {
   handleKeyDown(e);
   if (userInput) {
     if (checkCorrectAnswer()) {
