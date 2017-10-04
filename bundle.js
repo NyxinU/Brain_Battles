@@ -93,6 +93,7 @@ let timeLeft = null;
 start.addEventListener("click",() =>{
   start.className = "hidden";
   resetScore();
+  clearArrows();
   scoreDiv.classList.remove("hidden");
   timer(3, function() {
     unhideArrows();
