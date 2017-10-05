@@ -85,7 +85,8 @@ const start = document.querySelector(".start-button");
 
 
 // starting state
-gameHeader.className = "hidden";
+document.removeEventListener("keydown", __WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["a" /* afterP1Input */]);
+document.removeEventListener("keydown", __WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["a" /* afterP2Input */]);
 Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["c" /* renderPlayer1Arrow */])();
 Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["c" /* renderPlayer2Arrow */])();
 let timeLeft = 0;
@@ -93,7 +94,7 @@ let timeLeft = 0;
 
 start.addEventListener("click",() =>{
   start.className = "hidden";
-  instructions.className = "hidden";
+  // instructions.innerHTML = "";
   removeTitle();
   resetScore();
   clearArrows();
@@ -102,7 +103,7 @@ start.addEventListener("click",() =>{
     unhideArrows();
     startGamePlayer1();
     startGamePlayer2();
-    timer(3, function () {
+    timer(30, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
         clearArrows();

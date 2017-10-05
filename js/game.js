@@ -12,7 +12,8 @@ const start = document.querySelector(".start-button");
 
 
 // starting state
-gameHeader.className = "hidden";
+document.removeEventListener("keydown", afterP1Input);
+document.removeEventListener("keydown", afterP2Input);
 renderPlayer1Arrow();
 renderPlayer2Arrow();
 let timeLeft = 0;
@@ -20,7 +21,7 @@ let timeLeft = 0;
 
 start.addEventListener("click",() =>{
   start.className = "hidden";
-  instructions.className = "hidden";
+  // instructions.innerHTML = "";
   removeTitle();
   resetScore();
   clearArrows();
@@ -29,7 +30,7 @@ start.addEventListener("click",() =>{
     unhideArrows();
     startGamePlayer1();
     startGamePlayer2();
-    timer(3, function () {
+    timer(30, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
         clearArrows();
