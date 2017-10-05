@@ -87,7 +87,7 @@ const start = document.querySelector(".start-button");
 scoreDiv.className = "hidden";
 Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["b" /* renderPlayer1Arrow */])();
 Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["b" /* renderPlayer2Arrow */])();
-let timeLeft = null;
+let timeLeft = 0;
 //
 
 start.addEventListener("click",() =>{
@@ -99,10 +99,10 @@ start.addEventListener("click",() =>{
     unhideArrows();
     startGamePlayer1();
     startGamePlayer2();
-    timer(3, function () {
+    timer(30, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
-        console.log("game over");
+        console.log(`${p1Score.innerHTML},${p2Score.innerHTML}`);
         clearArrows();
         start.innerHTML = "Play Again";
         start.classList.remove("hidden");
