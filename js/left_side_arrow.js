@@ -42,7 +42,7 @@ const arrows = Array.from(document.querySelectorAll(".arrow"));
 // let timeLeft = 30;
 // countdownTimer.innerHTML = timeLeft;
 
-let p1ScoreCount = 0;
+export let p1ScoreCount = 0;
 let streakCount = 0;
 p1Score.innerHTML = p1ScoreCount;
 

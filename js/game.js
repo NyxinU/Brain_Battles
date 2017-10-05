@@ -5,6 +5,7 @@ const gameHeader = document.querySelector(".game-header");
 const p1Score = document.querySelector(".p1-score");
 const p2Score = document.querySelector(".p2-score");
 const countdownTimer = document.querySelector(".countdown-timer");
+const whiteBackgroundArrow = Array.from(document.querySelectorAll(".white-background-arrow"));
 const arrows = Array.from(document.querySelectorAll(".arrow"));
 const instructions = document.querySelector(".instructions");
 const start = document.querySelector(".start-button");
@@ -31,7 +32,6 @@ start.addEventListener("click",() =>{
     timer(3, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
-        console.log(`${p1Score.innerHTML},${p2Score.innerHTML}`);
         clearArrows();
         start.innerHTML = "Play Again";
         start.className = "start-button";

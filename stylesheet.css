@@ -21,7 +21,7 @@ body {
 
 .countdown-timer {
   font-weight: 700;
-  font-size: 50px;
+  font-size: 60px;
 }
 
 /* arrows */
@@ -61,10 +61,14 @@ body {
 }
 
 .white-background-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: white;
-  padding-left: 59px;
-  padding-right: 59px;
   border-radius: 25px;
+  box-shadow: 10px 10px 5px #888888;
+  width: 430px;
+  height: 430px;
 }
 
 .instructions {
@@ -83,10 +87,9 @@ body {
   font-size: 50px;
   background-color: rgb(255, 171, 83);
   color:white;
-  padding: 2px 100px;
+  padding: 3px 100px;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 10px 10px 5px #888888;
 }
 
 .correct-answer {

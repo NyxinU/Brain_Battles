@@ -78,6 +78,7 @@ const gameHeader = document.querySelector(".game-header");
 const p1Score = document.querySelector(".p1-score");
 const p2Score = document.querySelector(".p2-score");
 const countdownTimer = document.querySelector(".countdown-timer");
+const whiteBackgroundArrow = Array.from(document.querySelectorAll(".white-background-arrow"));
 const arrows = Array.from(document.querySelectorAll(".arrow"));
 const instructions = document.querySelector(".instructions");
 const start = document.querySelector(".start-button");
@@ -104,7 +105,6 @@ start.addEventListener("click",() =>{
     timer(3, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
-        console.log(`${p1Score.innerHTML},${p2Score.innerHTML}`);
         clearArrows();
         start.innerHTML = "Play Again";
         start.className = "start-button";
@@ -171,6 +171,7 @@ function resetScore() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export p1ScoreCount */
 /* harmony export (immutable) */ __webpack_exports__["a"] = afterP1Input;
 /* harmony export (immutable) */ __webpack_exports__["b"] = renderPlayer1Arrow;
 const allArrows = {
