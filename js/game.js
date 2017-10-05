@@ -1,5 +1,5 @@
-import { renderPlayer1Arrow, afterP1Input } from "./left_side_arrow";
-import { renderPlayer2Arrow, afterP2Input } from "./right_side_arrow";
+import { renderPlayer1Arrow, afterP1Input, clearP1Score } from "./left_side_arrow";
+import { renderPlayer2Arrow, afterP2Input, clearP2Score } from "./right_side_arrow";
 
 const gameHeader = document.querySelector(".game-header");
 const p1Score = document.querySelector(".p1-score");
@@ -89,4 +89,6 @@ function unhideArrows() {
 function resetScore() {
   p1Score.innerHTML = 0;
   p2Score.innerHTML = 0;
+  clearP1Score();
+  clearP2Score();
 }

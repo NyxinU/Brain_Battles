@@ -141,6 +141,10 @@ function incorrectAnswerAnimation() {
   },150);
 }
 
+export function clearP2Score() {
+  scoreCount = 0;
+}
+
 function getRandomInt(min, max) {
   min = min;
   max = max ;

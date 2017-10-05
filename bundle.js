@@ -86,8 +86,8 @@ const start = document.querySelector(".start-button");
 
 // starting state
 gameHeader.className = "hidden";
-Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["b" /* renderPlayer1Arrow */])();
-Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["b" /* renderPlayer2Arrow */])();
+Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["c" /* renderPlayer1Arrow */])();
+Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["c" /* renderPlayer2Arrow */])();
 let timeLeft = 0;
 //
 
@@ -132,11 +132,11 @@ let timer = (duration, callback) => {
 };
 
 function startGamePlayer1() {
-  Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["b" /* renderPlayer1Arrow */])();
+  Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["c" /* renderPlayer1Arrow */])();
 }
 
 function startGamePlayer2() {
-  Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["b" /* renderPlayer2Arrow */])();
+  Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["c" /* renderPlayer2Arrow */])();
 }
 
 function removeTitle() {
@@ -162,6 +162,8 @@ function unhideArrows() {
 function resetScore() {
   p1Score.innerHTML = 0;
   p2Score.innerHTML = 0;
+  Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["b" /* clearP1Score */])();
+  Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["b" /* clearP2Score */])();
 }
 
 
@@ -173,7 +175,8 @@ function resetScore() {
 "use strict";
 /* unused harmony export p1ScoreCount */
 /* harmony export (immutable) */ __webpack_exports__["a"] = afterP1Input;
-/* harmony export (immutable) */ __webpack_exports__["b"] = renderPlayer1Arrow;
+/* harmony export (immutable) */ __webpack_exports__["c"] = renderPlayer1Arrow;
+/* harmony export (immutable) */ __webpack_exports__["b"] = clearP1Score;
 const allArrows = {
   redUpArrow: '<i class="fa fa-arrow-circle-up red-arrow" aria-hidden="true"></i>',
   redDownArrow: '<i class="fa fa-arrow-circle-down red-arrow" aria-hidden="true"></i>',
@@ -317,6 +320,10 @@ function incorrectAnswerAnimation() {
   },150);
 }
 
+function clearP1Score() {
+  p1ScoreCount = 0;
+}
+
 function getRandomInt(min, max) {
   min = min;
   max = max ;
@@ -330,7 +337,8 @@ function getRandomInt(min, max) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = afterP2Input;
-/* harmony export (immutable) */ __webpack_exports__["b"] = renderPlayer2Arrow;
+/* harmony export (immutable) */ __webpack_exports__["c"] = renderPlayer2Arrow;
+/* harmony export (immutable) */ __webpack_exports__["b"] = clearP2Score;
 const allArrows = {
   redUpArrow: '<i class="fa fa-arrow-circle-up red-arrow" aria-hidden="true"></i>',
   redDownArrow: '<i class="fa fa-arrow-circle-down red-arrow" aria-hidden="true"></i>',
@@ -472,6 +480,10 @@ function incorrectAnswerAnimation() {
   setTimeout(function(){
     arrows[1].classList.remove("incorrect-answer");
   },150);
+}
+
+function clearP2Score() {
+  scoreCount = 0;
 }
 
 function getRandomInt(min, max) {
