@@ -74,17 +74,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-const scoreDiv = document.querySelector(".score-div");
+const gameHeader = document.querySelector(".game-header");
 const p1Score = document.querySelector(".p1-score");
 const p2Score = document.querySelector(".p2-score");
 const countdownTimer = document.querySelector(".countdown-timer");
 const arrows = Array.from(document.querySelectorAll(".arrow"));
+const instructions = document.querySelector(".instructions");
 const start = document.querySelector(".start-button");
-// document.addEventListener("keydown", afterP1Input);
-// document.addEventListener("keydown", afterP2Input);
+
 
 // starting state
-scoreDiv.className = "hidden";
+gameHeader.className = "hidden";
 Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["b" /* renderPlayer1Arrow */])();
 Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["b" /* renderPlayer2Arrow */])();
 let timeLeft = 0;
@@ -92,19 +92,22 @@ let timeLeft = 0;
 
 start.addEventListener("click",() =>{
   start.className = "hidden";
+  instructions.className = "hidden";
+  removeTitle();
   resetScore();
   clearArrows();
-  scoreDiv.classList.remove("hidden");
+  gameHeader.classList.remove("hidden");
   timer(3, function() {
     unhideArrows();
     startGamePlayer1();
     startGamePlayer2();
-    timer(30, function () {
+    timer(3, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
         console.log(`${p1Score.innerHTML},${p2Score.innerHTML}`);
         clearArrows();
         start.innerHTML = "Play Again";
+        start.className = "start-button";
         start.classList.remove("hidden");
       },1000);
     });
@@ -134,6 +137,13 @@ function startGamePlayer1() {
 
 function startGamePlayer2() {
   Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["b" /* renderPlayer2Arrow */])();
+}
+
+function removeTitle() {
+  const title = document.querySelector(".game-title");
+  while (title.hasChildNodes()) {
+    title.removeChild(title.firstChild);
+  }
 }
 
 function clearArrows() {

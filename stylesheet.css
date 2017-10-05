@@ -1,13 +1,42 @@
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+header {
+  margin-top: 20px;
+}
+
 body {
   width: 100%;
   margin: 0px;
   padding: 0px;
-  background-color: rgb(255, 253, 203);
+  background-color: rgb(202, 255, 180);
+}
+/* header */
+.timer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-timer {
+  font-weight: 700;
+  font-size: 50px;
 }
 
 /* arrows */
 .arrow {
   font-size: 400px;
+}
+
+.game-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: 700;
+
 }
 
 .red-arrow {
@@ -36,6 +65,28 @@ body {
   padding-left: 59px;
   padding-right: 59px;
   border-radius: 25px;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.start-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.start-button {
+  font-size: 50px;
+  background-color: rgb(255, 171, 83);
+  color:white;
+  padding: 2px 100px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 10px 10px 5px #888888;
 }
 
 .correct-answer {

@@ -4,27 +4,56 @@
     <meta charset="utf-8">
     <title>Brain Battles</title>
     <link rel="stylesheet" type="text/css" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
   </head>
   <body>
     <header class="game-header">
-      <div class="countdown-timer"></div>
+      <div class="timer-wrapper">
+        <label>Time</label>
+        <div class="countdown-timer"></div>
+      </div>
       <div class="score-div">
-        <label>Player 1 score</label>
-        <div class="p1-score"></div>
-        <label>Player 2 score</label>
-        <div class="p2-score"></div>
+        <div class="p1-score-wrapper">
+          <label>Player 1 score</label>
+          <div class="p1-score"></div>
+        </div>
+        <div class="p2-score-wrapper">
+          <label>Player 2 score</label>
+          <div class="p2-score"></div>
+        </div>
       </div>
     </header>
     <div class="arrow-div">
       <div class="white-background-arrow">
         <div class="arrow"></div>
       </div>
+      <div class="game-title">
+        <span>Heads</span>
+        <span>  or</span>
+        <span>Tails</span>
+      </div>
       <div class="white-background-arrow">
         <div class="arrow"></div>
       </div>
     </div>
-    <div class="start-button">Start</div>
+    <div class="instructions">
+      <small>
+        Blue background : Press the key that matches the direction of the arrow
+      </small>
+      <small>
+        Red background : Press the key that is the opposite direction of the arrow
+      </small>
+      <small>
+        Player 1 uses WASD and Player 2 uses directional keys
+      </small>
+      <small>
+        Give it a try, when you are ready. Click Start
+      </small>
+    </div>
+    <div class="start-button-wrapper">
+      <h1 class="start-button">Start</h1>
+    </div>
     <script src="./bundle.js"></script>
   </body>
 </html>
