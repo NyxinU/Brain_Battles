@@ -9,18 +9,14 @@
   </head>
   <body>
     <header class="game-header">
-      <div class="timer-wrapper">
-        <label>Time</label>
-        <div class="countdown-timer"></div>
-      </div>
       <div class="score-div">
         <div class="score-wrapper">
-          <label>Player 1</label>
+          <label class="player">Player 1</label>
           <label>Score</label>
           <div class="p1-score"></div>
         </div>
         <div class="score-wrapper">
-          <label>Player 2</label>
+          <label class="player">Player 2</label>
           <label>Score</label>
           <div class="p2-score"></div>
         </div>
@@ -30,23 +26,29 @@
       <div class="white-background-arrow">
         <div class="arrow"></div>
       </div>
-      <div class="game-title">
-        <span>Heads</span>
-        <span>  or</span>
-        <span>Tails</span>
+      <div class="">
+        <div class="timer-wrapper hidden">
+          <label>Time</label>
+          <div class="countdown-timer"></div>
+        </div>
+        <div class="game-title">
+          <span>Brain</span>
+          <span>Battles</span>
+        </div>
       </div>
       <div class="white-background-arrow">
         <div class="arrow"></div>
       </div>
     </div>
     <div class="instructions">
-      <img class="left-cursor-pointer" src="./cursor_pointer.png">
+      <!-- <img class="left-cursor-pointer" src="./cursor_pointer.png"> -->
       <img class="directional-keys" src="./WASD.png">
       <span class="written-instructions">
-        <small>Blue : Follow the arrow</small>
-        <small>Red  : Unfollow the arrow</small>
+        <small>This is a demo, click Start when ready</small>
+        <small>Blue background : Direction of the arrow</small>
+        <small>Red background : Opposite direction of the arrow</small>
       </span>
-      <img class="right-cursor-pointer" src="./cursor_pointer.png">
+      <!-- <img class="right-cursor-pointer" src="./cursor_pointer.png"> -->
       <img class="directional-keys" src="./Arrow_keys.png">
     </div>
     <div class="start-button-wrapper">

@@ -77,6 +77,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 const gameHeader = document.querySelector(".game-header");
 const p1Score = document.querySelector(".p1-score");
 const p2Score = document.querySelector(".p2-score");
+const timerWrapper = document.querySelector(".timer-wrapper");
 const countdownTimer = document.querySelector(".countdown-timer");
 const whiteBackgroundArrow = Array.from(document.querySelectorAll(".white-background-arrow"));
 const arrows = Array.from(document.querySelectorAll(".arrow"));
@@ -85,8 +86,8 @@ const start = document.querySelector(".start-button");
 
 
 // starting state
-document.removeEventListener("keydown", __WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["a" /* afterP1Input */]);
-document.removeEventListener("keydown", __WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["a" /* afterP2Input */]);
+// document.removeEventListener("keydown", afterP1Input);
+// document.removeEventListener("keydown", afterP2Input);
 
 Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["d" /* renderPlayer1IntroArrow */])();
 Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["d" /* renderPlayer2IntroArrow */])();
@@ -95,6 +96,7 @@ let timeLeft = 0;
 
 start.addEventListener("click",() =>{
   start.className = "hidden";
+  timerWrapper.classList.remove("hidden");
   // instructions.innerHTML = "";
   removeTitle();
   resetScore();

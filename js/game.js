@@ -4,6 +4,7 @@ import { renderPlayer2Arrow, renderPlayer2IntroArrow, afterP2Input, clearP2Score
 const gameHeader = document.querySelector(".game-header");
 const p1Score = document.querySelector(".p1-score");
 const p2Score = document.querySelector(".p2-score");
+const timerWrapper = document.querySelector(".timer-wrapper");
 const countdownTimer = document.querySelector(".countdown-timer");
 const whiteBackgroundArrow = Array.from(document.querySelectorAll(".white-background-arrow"));
 const arrows = Array.from(document.querySelectorAll(".arrow"));
@@ -12,8 +13,8 @@ const start = document.querySelector(".start-button");
 
 
 // starting state
-document.removeEventListener("keydown", afterP1Input);
-document.removeEventListener("keydown", afterP2Input);
+// document.removeEventListener("keydown", afterP1Input);
+// document.removeEventListener("keydown", afterP2Input);
 
 renderPlayer1IntroArrow();
 renderPlayer2IntroArrow();
@@ -22,6 +23,7 @@ let timeLeft = 0;
 
 start.addEventListener("click",() =>{
   start.className = "hidden";
+  timerWrapper.classList.remove("hidden");
   // instructions.innerHTML = "";
   removeTitle();
   resetScore();
