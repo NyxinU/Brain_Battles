@@ -87,8 +87,9 @@ const start = document.querySelector(".start-button");
 // starting state
 document.removeEventListener("keydown", __WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["a" /* afterP1Input */]);
 document.removeEventListener("keydown", __WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["a" /* afterP2Input */]);
-Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["c" /* renderPlayer1Arrow */])();
-Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["c" /* renderPlayer2Arrow */])();
+
+Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["d" /* renderPlayer1IntroArrow */])();
+Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["d" /* renderPlayer2IntroArrow */])();
 let timeLeft = 0;
 //
 
@@ -177,6 +178,7 @@ function resetScore() {
 /* unused harmony export p1ScoreCount */
 /* harmony export (immutable) */ __webpack_exports__["a"] = afterP1Input;
 /* harmony export (immutable) */ __webpack_exports__["c"] = renderPlayer1Arrow;
+/* harmony export (immutable) */ __webpack_exports__["d"] = renderPlayer1IntroArrow;
 /* harmony export (immutable) */ __webpack_exports__["b"] = clearP1Score;
 const allArrows = {
   redUpArrow: '<i class="fa fa-arrow-circle-up red-arrow" aria-hidden="true"></i>',
@@ -281,7 +283,12 @@ function handleWrongAnswer() {
 
 function renderPlayer1Arrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
-    arrows[0].innerHTML = allArrows[currentArrow];
+  arrows[0].innerHTML = allArrows[currentArrow];
+}
+
+function renderPlayer1IntroArrow() {
+  currentArrow = allArrowsArr[6];
+  arrows[0].innerHTML = allArrows[currentArrow];
 }
 
 function handleKeyDown(e) {
@@ -339,6 +346,7 @@ function getRandomInt(min, max) {
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = afterP2Input;
 /* harmony export (immutable) */ __webpack_exports__["c"] = renderPlayer2Arrow;
+/* harmony export (immutable) */ __webpack_exports__["d"] = renderPlayer2IntroArrow;
 /* harmony export (immutable) */ __webpack_exports__["b"] = clearP2Score;
 const allArrows = {
   redUpArrow: '<i class="fa fa-arrow-circle-up red-arrow" aria-hidden="true"></i>',
@@ -444,6 +452,11 @@ function handleWrongAnswer() {
 function renderPlayer2Arrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
     arrows[1].innerHTML = allArrows[currentArrow];
+}
+
+function renderPlayer2IntroArrow() {
+  currentArrow = allArrowsArr[2];
+  arrows[1].innerHTML = allArrows[currentArrow];
 }
 
 function handleKeyDown(e) {

@@ -16,6 +16,10 @@ body {
   background-size: 109%;
 }
 
+img {
+  /*transform: rotate(180deg);*/
+}
+
 /* header */
 .timer-wrapper {
   display: flex;
@@ -100,6 +104,32 @@ body {
   margin-right: 15%;
 }
 
+
+.left-cursor-pointer, .right-cursor-pointer{
+  position: fixed;
+  width: 40px;
+  z-index: 1;
+  bottom: 18%;
+  animation: press-down 3s cubic-bezier(0, 1.61, 0, -0.54) 0s infinite reverse forwards
+}
+
+.left-cursor-pointer {
+}
+
+.right-cursor-pointer {
+  right: 15.5%;
+}
+
+.directional-keys {
+  transform: none;
+}
+
+@keyframes press-down {
+  0% {transform: translateY(50%)};
+  100% {transform: translateY(0%)};
+  50% {transform: translateY(50%)};
+}
+
 .directional-keys {
   width: 150px;
 }
@@ -114,7 +144,7 @@ body {
 .start-button-wrapper {
   display: flex;
   justify-content: center;
-  /*height: 101px;*/
+  /*heightw: 101px;*/
 }
 
 .start-button {

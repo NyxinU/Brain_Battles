@@ -101,7 +101,12 @@ function handleWrongAnswer() {
 
 export function renderPlayer1Arrow() {
   currentArrow = allArrowsArr[getRandomInt(0,8)];
-    arrows[0].innerHTML = allArrows[currentArrow];
+  arrows[0].innerHTML = allArrows[currentArrow];
+}
+
+export function renderPlayer1IntroArrow() {
+  currentArrow = allArrowsArr[6];
+  arrows[0].innerHTML = allArrows[currentArrow];
 }
 
 function handleKeyDown(e) {

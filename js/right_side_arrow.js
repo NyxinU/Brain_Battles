@@ -104,6 +104,11 @@ export function renderPlayer2Arrow() {
     arrows[1].innerHTML = allArrows[currentArrow];
 }
 
+export function renderPlayer2IntroArrow() {
+  currentArrow = allArrowsArr[2];
+  arrows[1].innerHTML = allArrows[currentArrow];
+}
+
 function handleKeyDown(e) {
   e.preventDefault();
   const keyCode = e.keyCode;

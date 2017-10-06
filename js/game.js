@@ -1,5 +1,5 @@
-import { renderPlayer1Arrow, afterP1Input, clearP1Score } from "./left_side_arrow";
-import { renderPlayer2Arrow, afterP2Input, clearP2Score } from "./right_side_arrow";
+import { renderPlayer1Arrow, renderPlayer1IntroArrow, afterP1Input, clearP1Score,  } from "./left_side_arrow";
+import { renderPlayer2Arrow, renderPlayer2IntroArrow, afterP2Input, clearP2Score } from "./right_side_arrow";
 
 const gameHeader = document.querySelector(".game-header");
 const p1Score = document.querySelector(".p1-score");
@@ -14,8 +14,9 @@ const start = document.querySelector(".start-button");
 // starting state
 document.removeEventListener("keydown", afterP1Input);
 document.removeEventListener("keydown", afterP2Input);
-renderPlayer1Arrow();
-renderPlayer2Arrow();
+
+renderPlayer1IntroArrow();
+renderPlayer2IntroArrow();
 let timeLeft = 0;
 //
 
