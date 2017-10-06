@@ -1,6 +1,8 @@
 * {
-  font-family: 'Raleway', sans-serif;
+  /*font-family: 'Raleway', sans-serif;*/
+  font-family: 'Comfortaa', cursive;
   font-weight: bold;
+  font-kerning:
 }
 
 header {
@@ -59,9 +61,8 @@ img {
 
 .score-div {
   display: flex;
-  justify-content: space-between;
-  margin-left: 15%;
-  margin-right: 15%;
+  justify-content: space-around;
+
 }
 
 .score-wrapper {
@@ -116,12 +117,12 @@ img {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-  margin-left: 14%;
-  margin-right: 15%;
+  margin-left: 11%;
+  margin-right: 11%;
 }
 
 
-.left-cursor-pointer, .right-cursor-pointer{
+/*.left-cursor-pointer, .right-cursor-pointer{
   position: fixed;
   width: 40px;
   z-index: 1;
@@ -134,16 +135,16 @@ img {
 
 .right-cursor-pointer {
   right: 15.5%;
-}
+}*/
 
 .directional-keys {
   transform: none;
 }
 
-@keyframes press-down {
+/*@keyframes press-down {
   0% {transform: translateY(0%)};
   100% {transform: translateY(100px)};
-}
+}*/
 
 .directional-keys {
   width: 150px;
