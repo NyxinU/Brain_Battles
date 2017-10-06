@@ -84,36 +84,27 @@ const whiteBackgroundArrow = Array.from(document.querySelectorAll(".white-backgr
 const arrows = Array.from(document.querySelectorAll(".arrow"));
 const instructions = document.querySelector(".instructions");
 const start = document.querySelector(".start-button");
-
+const interactiveTutorial = document.querySelector(".interactive-tutorial");
+const interactiveTutorialGoal = document.querySelector(".interactive-tutorial-goal");
 
 // starting state
-// document.removeEventListener("keydown", afterP1Input);
-// document.removeEventListener("keydown", afterP2Input);
-
 Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["d" /* renderPlayer1IntroArrow */])();
 Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["d" /* renderPlayer2IntroArrow */])();
 let timeLeft = 0;
 //
 
 start.addEventListener("click",() =>{
-  start.className = "hidden";
-  timerWrapper.classList.remove("hidden");
-  demo.innerHTML = "";
-  removeTitle();
-  resetScore();
-  clearArrows();
-  gameHeader.classList.remove("hidden");
+  hideIntroElements();
   timer(3, function() {
     unhideArrows();
     startGamePlayer1();
     startGamePlayer2();
-    timer(30, function () {
+    timer(3, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
         clearArrows();
-        start.innerHTML = "Play Again";
-        start.className = "start-button";
-        start.classList.remove("hidden");
+        showPlayAgain();
+        displayWinner();
       },1000);
     });
   });
@@ -169,6 +160,36 @@ function resetScore() {
   p2Score.innerHTML = 0;
   Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["b" /* clearP1Score */])();
   Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["b" /* clearP2Score */])();
+}
+
+function showPlayAgain() {
+  start.innerHTML = "Play Again";
+  start.className = "start-button";
+  start.classList.remove("hidden");
+}
+
+function displayWinner() {
+  if (p1Score.innerHTML === p2Score.innerHTML) {
+    arrows[0].innerHTML = "<span style='font-size:50px'>Draw</span>";
+    arrows[1].innerHTML = "<span style='font-size:50px'>Draw</span>";
+  }else if (p1Score.innerHTML > p2Score.innerHTML) {
+    arrows[0].innerHTML = "<span style='font-size:50px'>You Win!</span>";
+    arrows[1].innerHTML = "<span style='font-size:50px'>You Lose</span>";
+  }else {
+    arrows[1].innerHTML = "<span style='font-size:50px'>You Win!</span>";
+    arrows[0].innerHTML = "<span style='font-size:50px'>You Lose</span>";
+  }
+}
+
+function hideIntroElements() {
+  start.className = "hidden";
+  timerWrapper.classList.remove("hidden");
+  interactiveTutorial.innerHTML = "";
+  interactiveTutorialGoal.innerHTML = "";
+  removeTitle();
+  resetScore();
+  clearArrows();
+  gameHeader.classList.remove("hidden");
 }
 
 

@@ -60,8 +60,9 @@ img {
 
 .score-div {
   display: flex;
-  justify-content: space-around;
-
+  justify-content: space-between;
+  margin-left: 15.5%;
+  margin-right: 15.5%;
 }
 
 .score-wrapper {
@@ -78,6 +79,8 @@ img {
 .arrow {
   font-size: 400px;
   display: flex;
+  position: absolute;
+  z-index: 2;
 }
 
 
@@ -157,10 +160,13 @@ img {
   font-size: 35px;
 }
 
+.interactive-tutorial {
+  text-align: center;
+}
+
 .start-button-wrapper {
   display: flex;
   justify-content: center;
-  /*heightw: 101px;*/
 }
 
 .start-button {
