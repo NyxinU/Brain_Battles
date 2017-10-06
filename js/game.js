@@ -6,6 +6,7 @@ const p1Score = document.querySelector(".p1-score");
 const p2Score = document.querySelector(".p2-score");
 const timerWrapper = document.querySelector(".timer-wrapper");
 const countdownTimer = document.querySelector(".countdown-timer");
+const demo = document.querySelector(".demo");
 const whiteBackgroundArrow = Array.from(document.querySelectorAll(".white-background-arrow"));
 const arrows = Array.from(document.querySelectorAll(".arrow"));
 const instructions = document.querySelector(".instructions");
@@ -24,7 +25,7 @@ let timeLeft = 0;
 start.addEventListener("click",() =>{
   start.className = "hidden";
   timerWrapper.classList.remove("hidden");
-  // instructions.innerHTML = "";
+  demo.innerHTML = "";
   removeTitle();
   resetScore();
   clearArrows();
