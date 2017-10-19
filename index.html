@@ -45,16 +45,64 @@
       <!-- <img class="left-cursor-pointer" src="./cursor_pointer.png"> -->
       <img class="directional-keys" src="./WASD.png">
       <span class="written-instructions">
-        <small class="interactive-tutorial">This is an interactive tutorial</small>
-        <small class="interactive-tutorial-goal">Goal - Get more points than your opponent</small>
-        <small>Blue background - Press key in direction of arrow</small>
-        <small>Red background - Opposite direction of arrow</small>
+        <small class="interactive-tutorial">This is an interactive demo </br>
+        Click start when ready</small>
+        <!-- <small>Blue background - Press key in direction of arrow</small>
+        <small>Red background - Opposite direction of arrow</small> -->
       </span>
       <!-- <img class="right-cursor-pointer" src="./cursor_pointer.png"> -->
       <img class="directional-keys" src="./Arrow_keys.png">
     </div>
     <div class="start-button-wrapper">
       <h1 class="start-button">Start</h1>
+
+      <!-- Trigger/Open The Modal -->
+        <i id="myBtn" class="fa fa-info-circle start-button" style="float:right" aria-hidden="true"></i>
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="written-instructions">
+            <div class="close"></div>
+            <p class="interactive-tutorial-goal">Objective - Get more points than your opponent</p>
+            <p>Blue background - Press key that is the <strong>same</strong> direction as arrow</p>
+            <p>Red background - <strong>Opposite</strong> direction of arrow</p>
+          </div>
+        </div>
+
+      </div>
+
+      <script>
+      // Get the modal
+      var modal = document.getElementById('myModal');
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal
+      btn.onclick = function() {
+          modal.style.display = "block";
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+      </script>
+
+
     </div>
     <script src="./bundle.js"></script>
   </body>

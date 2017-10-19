@@ -14,6 +14,8 @@ const start = document.querySelector(".start-button");
 const interactiveTutorial = document.querySelector(".interactive-tutorial");
 const interactiveTutorialGoal = document.querySelector(".interactive-tutorial-goal");
 
+
+
 // starting state
 renderPlayer1IntroArrow();
 renderPlayer2IntroArrow();
