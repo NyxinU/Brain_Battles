@@ -65,6 +65,15 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(1);
+(function webpackMissingModule() { throw new Error("Cannot find module \"-\""); }());
+(function webpackMissingModule() { throw new Error("Cannot find module \"w\""); }());
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -87,6 +96,8 @@ const start = document.querySelector(".start-button");
 const interactiveTutorial = document.querySelector(".interactive-tutorial");
 const interactiveTutorialGoal = document.querySelector(".interactive-tutorial-goal");
 
+
+
 // starting state
 Object(__WEBPACK_IMPORTED_MODULE_0__left_side_arrow__["d" /* renderPlayer1IntroArrow */])();
 Object(__WEBPACK_IMPORTED_MODULE_1__right_side_arrow__["d" /* renderPlayer2IntroArrow */])();
@@ -104,7 +115,7 @@ start.addEventListener("click",() =>{
       setTimeout(function() {
         clearArrows();
         showPlayAgain();
-        displayWinner();
+        // displayWinner(); 
       },1000);
     });
   });
@@ -168,18 +179,18 @@ function showPlayAgain() {
   start.classList.remove("hidden");
 }
 
-function displayWinner() {
-  if (p1Score.innerHTML === p2Score.innerHTML) {
-    arrows[0].innerHTML = "<span style='font-size:50px'>Draw</span>";
-    arrows[1].innerHTML = "<span style='font-size:50px'>Draw</span>";
-  }else if (p1Score.innerHTML > p2Score.innerHTML) {
-    arrows[0].innerHTML = "<span style='font-size:50px'>You Win!</span>";
-    arrows[1].innerHTML = "<span style='font-size:50px'>You Lose</span>";
-  }else {
-    arrows[1].innerHTML = "<span style='font-size:50px'>You Win!</span>";
-    arrows[0].innerHTML = "<span style='font-size:50px'>You Lose</span>";
-  }
-}
+// function displayWinner() {
+//   if (p1Score.innerHTML === p2Score.innerHTML) {
+//     arrows[0].innerHTML = "<span style='font-size:50px'>Draw</span>";
+//     arrows[1].innerHTML = "<span style='font-size:50px'>Draw</span>";
+//   }else if (p1Score.innerHTML > p2Score.innerHTML) {
+//     arrows[0].innerHTML = "<span style='font-size:50px'>You Win!</span>";
+//     arrows[1].innerHTML = "<span style='font-size:50px'>You Lose</span>";
+//   }else {
+//     arrows[1].innerHTML = "<span style='font-size:50px'>You Win!</span>";
+//     arrows[0].innerHTML = "<span style='font-size:50px'>You Lose</span>";
+//   }
+// }
 
 function hideIntroElements() {
   start.className = "hidden";
@@ -194,7 +205,6 @@ function hideIntroElements() {
 
 
 /***/ }),
-/* 1 */,
 /* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

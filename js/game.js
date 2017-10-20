@@ -33,7 +33,7 @@ start.addEventListener("click",() =>{
       setTimeout(function() {
         clearArrows();
         showPlayAgain();
-        displayWinner();
+        // displayWinner(); 
       },1000);
     });
   });
@@ -97,18 +97,18 @@ function showPlayAgain() {
   start.classList.remove("hidden");
 }
 
-function displayWinner() {
-  if (p1Score.innerHTML === p2Score.innerHTML) {
-    arrows[0].innerHTML = "<span style='font-size:50px'>Draw</span>";
-    arrows[1].innerHTML = "<span style='font-size:50px'>Draw</span>";
-  }else if (p1Score.innerHTML > p2Score.innerHTML) {
-    arrows[0].innerHTML = "<span style='font-size:50px'>You Win!</span>";
-    arrows[1].innerHTML = "<span style='font-size:50px'>You Lose</span>";
-  }else {
-    arrows[1].innerHTML = "<span style='font-size:50px'>You Win!</span>";
-    arrows[0].innerHTML = "<span style='font-size:50px'>You Lose</span>";
-  }
-}
+// function displayWinner() {
+//   if (p1Score.innerHTML === p2Score.innerHTML) {
+//     arrows[0].innerHTML = "<span style='font-size:50px'>Draw</span>";
+//     arrows[1].innerHTML = "<span style='font-size:50px'>Draw</span>";
+//   }else if (p1Score.innerHTML > p2Score.innerHTML) {
+//     arrows[0].innerHTML = "<span style='font-size:50px'>You Win!</span>";
+//     arrows[1].innerHTML = "<span style='font-size:50px'>You Lose</span>";
+//   }else {
+//     arrows[1].innerHTML = "<span style='font-size:50px'>You Win!</span>";
+//     arrows[0].innerHTML = "<span style='font-size:50px'>You Lose</span>";
+//   }
+// }
 
 function hideIntroElements() {
   start.className = "hidden";
