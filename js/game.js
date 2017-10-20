@@ -28,12 +28,12 @@ start.addEventListener("click",() =>{
     unhideArrows();
     startGamePlayer1();
     startGamePlayer2();
-    timer(30, function () {
+    timer(10, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
         clearArrows();
         showPlayAgain();
-        // displayWinner(); 
+        displayWinner();
       },1000);
     });
   });
@@ -97,18 +97,21 @@ function showPlayAgain() {
   start.classList.remove("hidden");
 }
 
-// function displayWinner() {
-//   if (p1Score.innerHTML === p2Score.innerHTML) {
-//     arrows[0].innerHTML = "<span style='font-size:50px'>Draw</span>";
-//     arrows[1].innerHTML = "<span style='font-size:50px'>Draw</span>";
-//   }else if (p1Score.innerHTML > p2Score.innerHTML) {
-//     arrows[0].innerHTML = "<span style='font-size:50px'>You Win!</span>";
-//     arrows[1].innerHTML = "<span style='font-size:50px'>You Lose</span>";
-//   }else {
-//     arrows[1].innerHTML = "<span style='font-size:50px'>You Win!</span>";
-//     arrows[0].innerHTML = "<span style='font-size:50px'>You Lose</span>";
-//   }
-// }
+function displayWinner() {
+  const player1Score = parseInt(p1Score.innerHTML);
+  const player2Score = parseInt(p2Score.innerHTML);
+
+  if (player1Score === player2Score) {
+    arrows[0].innerHTML = "<span style='font-size:50px'>Draw</span>";
+    arrows[1].innerHTML = "<span style='font-size:50px'>Draw</span>";
+  }else if (player1Score > player2Score) {
+    arrows[0].innerHTML = "<span style='font-size:50px'>You Win!</span>";
+    arrows[1].innerHTML = "<span style='font-size:50px'>You Lose</span>";
+  }else if (player1Score < player2Score) {
+    arrows[1].innerHTML = "<span style='font-size:50px'>You Win!</span>";
+    arrows[0].innerHTML = "<span style='font-size:50px'>You Lose</span>";
+  }
+}
 
 function hideIntroElements() {
   start.className = "hidden";
