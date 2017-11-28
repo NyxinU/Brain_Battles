@@ -101,7 +101,7 @@ start.addEventListener("click",() =>{
     unhideArrows();
     startGamePlayer1();
     startGamePlayer2();
-    timer(3, function () {
+    timer(30, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
         clearArrows();
@@ -190,7 +190,6 @@ function hideIntroElements() {
   start.className = "hidden";
   timerWrapper.classList.remove("hidden");
   interactiveTutorial.innerHTML = "";
-  interactiveTutorialGoal.innerHTML = "";
   removeTitle();
   resetScore();
   clearArrows();
