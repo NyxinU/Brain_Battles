@@ -101,7 +101,7 @@ start.addEventListener("click",() =>{
     unhideArrows();
     startGamePlayer1();
     startGamePlayer2();
-    timer(30, function () {
+    timer(3, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
         clearArrows();
