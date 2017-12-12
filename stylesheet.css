@@ -158,7 +158,7 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 35px;
+  font-size: 24px;
 }
 
 .interactive-tutorial {
@@ -166,9 +166,9 @@ img {
 }
 
 .start-button-wrapper {
-  position: fixed;
+  position: absolute;
   z-index: 2;
-  top: 8vh;
+  top: 0vh;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -218,9 +218,9 @@ img {
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 3; /* Sit on top */
-    padding-top: 25.5vh; /* Location of the box */
+    padding-top: 14.5vh; /* Location of the box */
     left: 0;
-    top: 0;
+    top: 0vh;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
@@ -235,9 +235,10 @@ img {
   align-items: center;
   background-color: #fefefe;
   margin: auto;
+  margin-top: 9vh;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 24%;
   border-radius: 50px;
 }
 
