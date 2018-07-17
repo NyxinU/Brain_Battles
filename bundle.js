@@ -65,12 +65,20 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(1);
+module.exports = __webpack_require__(4);
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__left_side_arrow__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__right_side_arrow__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__left_side_arrow__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__right_side_arrow__ = __webpack_require__(3);
 
 
 
@@ -198,7 +206,7 @@ function hideIntroElements() {
 
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -367,7 +375,7 @@ function getRandomInt(min, max) {
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -532,6 +540,38 @@ function getRandomInt(min, max) {
   max = max ;
   return Math.floor(Math.random() * (max-min)) + min;
 }
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+
+  // Get the modal
+  var modal = document.getElementById('myModal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks the button, open the modal
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+      }
+  
+      // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
+      }
+  }
 
 
 /***/ })
