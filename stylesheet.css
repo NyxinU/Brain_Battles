@@ -9,6 +9,7 @@ header {
 }
 
 body {
+  min-width: 1440px;
   width: 100%;
   margin: 0px;
   padding: 0px;
@@ -32,16 +33,18 @@ img {
   font-weight: 700;
 }
 .timer-wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   /*justify-content: center;*/
   width: 94px;
+  top: -15vh;
 }
 
 .countdown-timer {
   font-weight: 900;
-  font-size: 80px;
+  font-size: 50px;
 }
 
 .demo {
@@ -122,6 +125,10 @@ img {
   margin-top: 20px;
   margin-left: 15%;
   margin-right: 15%;
+}
+
+.bold {
+  font-weight: bolder;
 }
 
 
@@ -236,9 +243,10 @@ img {
   background-color: #fefefe;
   margin: auto;
   margin-top: 9vh;
+  margin-left: 36.2vw;
   padding: 20px;
   border: 1px solid #888;
-  width: 24%;
+  width: 25%;
   border-radius: 50px;
 }
 

@@ -327,7 +327,7 @@ function renderPlayer1IntroArrow() {
 }
 
 function handleKeyDown(e) {
-  e.preventDefault();
+  // e.preventDefault();
   const keyCode = e.keyCode;
   switch (keyCode) {
     case 65:
@@ -341,6 +341,8 @@ function handleKeyDown(e) {
       break;
     case 83:
       userInput = "down";
+      break;
+    default:
       break;
   }
 }
