@@ -39,12 +39,12 @@ img {
   align-items: center;
   /*justify-content: center;*/
   width: 94px;
-  top: -7vh;
+  top: -15vh;
 }
 
 .countdown-timer {
   font-weight: 900;
-  font-size: 80px;
+  font-size: 50px;
 }
 
 .demo {
@@ -243,9 +243,10 @@ img {
   background-color: #fefefe;
   margin: auto;
   margin-top: 9vh;
+  margin-left: 36.2vw;
   padding: 20px;
   border: 1px solid #888;
-  width: 24%;
+  width: 25%;
   border-radius: 50px;
 }
 
