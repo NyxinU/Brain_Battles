@@ -24,11 +24,11 @@ let timeLeft = 0;
 
 start.addEventListener("click",() =>{
   hideIntroElements();
-  timer(3, function() {
+  timer(0, function() {
     unhideArrows();
     startGamePlayer1();
     startGamePlayer2();
-    timer(30, function () {
+    timer(0, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
         clearArrows();

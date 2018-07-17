@@ -105,11 +105,11 @@ let timeLeft = 0;
 
 start.addEventListener("click",() =>{
   hideIntroElements();
-  timer(3, function() {
+  timer(0, function() {
     unhideArrows();
     startGamePlayer1();
     startGamePlayer2();
-    timer(30, function () {
+    timer(0, function () {
       countdownTimer.innerHTML = 0;
       setTimeout(function() {
         clearArrows();
@@ -327,7 +327,7 @@ function renderPlayer1IntroArrow() {
 }
 
 function handleKeyDown(e) {
-  e.preventDefault();
+  // e.preventDefault();
   const keyCode = e.keyCode;
   switch (keyCode) {
     case 65:
@@ -341,6 +341,8 @@ function handleKeyDown(e) {
       break;
     case 83:
       userInput = "down";
+      break;
+    default:
       break;
   }
 }
