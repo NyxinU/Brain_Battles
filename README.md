@@ -1,5 +1,5 @@
 # Brain Battles
-[Live](http://www.brainbattles.xyz/)
+[Live](https://nyxinu.github.io/Brain_Battles/)
 ### Overview
 Brain Battles is a game that improves reaction time and physiologically changes your brain by inducing the creation of new neural pathways.
 
